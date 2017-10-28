@@ -91,7 +91,7 @@ var g = new _gun2.default(); /**
                               * Created by HP on 28-Oct-17.
                               */
 
-g.getDistance();
+g.getDistance('aksdjf');
 
 /***/ }),
 /* 1 */
@@ -117,9 +117,9 @@ var Gun = function () {
     }
 
     _createClass(Gun, [{
-        key: 'getDistance',
-        value: function getDistance() {
-            console.log('Distande');
+        key: "getDistance",
+        value: function getDistance(arg) {
+            console.log(arg);
         }
     }]);
 

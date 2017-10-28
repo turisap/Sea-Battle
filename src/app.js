@@ -14,4 +14,4 @@ function rotateGun(e){
 document.body.addEventListener('mousemove', rotateGun);*/
 
 const g = new Gun();
-g.getDistance();
+g.getDistance('It looks like everything is gooooooooooooooood');

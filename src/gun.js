@@ -6,8 +6,8 @@ export default class  Gun {
 
     }
 
-    getDistance() {
-        console.log('Distande');
+    getDistance(arg) {
+        console.log(arg);
     }
 }
 
