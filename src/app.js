@@ -1,6 +1,7 @@
 /**
  * Created by HP on 28-Oct-17.
  */
+//require('../styles/styles.scss');
 import Gun from './gun';
 /*const sea = document.querySelector('#window');
 const gun = document.querySelector('#gun');
@@ -14,4 +15,4 @@ function rotateGun(e){
 document.body.addEventListener('mousemove', rotateGun);*/
 
 const g = new Gun();
-g.getDistance('It looks like everything is gooooooooooooooood');
+g.getDistance('It looks lved');
