@@ -1,0 +1,38 @@
+element.classList.add('class')
+element.classList.remove('class')
+
+array helpers:
+some() checks whether any element conforms with a condition (return boolean)
+every() checks whether all elements conform with a condition (return boolean)
+find() finds an  element can be object by it's property find(comment => comment.id === 823423)
+findIndex() finds an index of an element (can be an object by it's property) findIndex(comment => comment.id === 823423)
+Array.from() is same as [...notarray]
+
+CONSOLE
+console.table(comments)     PRINTS A TABLE IN CONSOLE!!!!
+console.log('%c I am a string', 'font-size: 45px') STyling console
+console.warn('tsss, it is not me');
+console.error('Shit!');
+console.info('Crocodiles eat 7 crocodiles a year');
+console.clear();
+console.dir(document.querySelector('class')) all info about an element
+
+const method = video.paused ? 'play' : 'pause'; video[method](); accessing a method of an object as a string
+always use.window on scroll with debounce function
+
+if(!e.target.matches('input')) checks which element was clicked
+items[index].done = !items[index].done; toggles variable
+
+
+Data atribute
+element.dataset.time f.e. getting 4 from <li data-time=4>A</li>
+.getBoundingClientRect() gets coordinates of an element
+e.stopPropogation() stops firing all events from the targeted element all the eway down (#25)
+setTimeout(() => this.classList.contains('trigger-enter') && this.classList.add('trigger-enter-active')); checking the first condition and then runs the second function (don't need if statement)
+
+.fixed-nav li.logo {  //add class on scroll to body nd other elements make depended on it (look #24 lesson)
+  max-width: 500px;
+}
+.fixed-nav .site-wrap {
+  transform : scale(1);
+}
