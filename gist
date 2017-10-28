@@ -17,6 +17,12 @@ console.info('Crocodiles eat 7 crocodiles a year');
 console.clear();
 console.dir(document.querySelector('class')) all info about an element
 
+DEBUGGER
+function runwithDebugger(myfunction){
+    debugger;
+    myfunction()
+}
+
 const method = video.paused ? 'play' : 'pause'; video[method](); accessing a method of an object as a string
 always use.window on scroll with debounce function
 
