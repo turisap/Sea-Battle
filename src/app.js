@@ -1,7 +1,7 @@
 /**
  * Created by HP on 28-Oct-17.
  */
-import Gun from './src/gun';
+import Gun from './gun';
 /*const sea = document.querySelector('#window');
 const gun = document.querySelector('#gun');
 
