@@ -6,6 +6,7 @@ const glob = require('glob');
 const webpack = require('webpack');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const PurifyCSSPlugin = require('purifycss-webpack');
+const HotModuleReplacementPlugin = require('webpack-hot-middleware');
 
 
 /*module.exports = {
@@ -82,10 +83,10 @@ module.exports = {
     plugins : [
         //new webpack.optimize.UglifyJsPlugin(), // minifier,
         new ExtractTextPlugin("[name].css"),
+        new webpack.HotModuleReplacementPlugin(),
         new PurifyCSSPlugin({
             // Give paths to parse for rules. These should be absolute!
             paths: glob.sync(path.join(__dirname, 'index.html')),
         }),
     ]
-
 };

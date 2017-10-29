@@ -26,10 +26,6 @@ body,html {
   transform: rotate(-25deg);
 }
 
-div {
-  color: red;
-}
-
 /* ======== UTILITY CLASSES ==============*/
 
 .black-bordered {
