@@ -67,14 +67,18 @@
 /* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
+__webpack_require__(1);
+module.exports = __webpack_require__(3);
+
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
 "use strict";
 
 
-var _gun = __webpack_require__(1);
-
-var _gun2 = _interopRequireDefault(_gun);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _gun = __webpack_require__(2);
 
 /*const sea = document.querySelector('#window');
 const gun = document.querySelector('#gun');
@@ -87,14 +91,14 @@ function rotateGun(e){
 
 document.body.addEventListener('mousemove', rotateGun);*/
 
-var g = new _gun2.default(); /**
-                              * Created by HP on 28-Oct-17.
-                              */
+var g = new _gun.Gun(); /**
+                         * Created by HP on 28-Oct-17.
+                         */
 
-g.getDistance('aksdjf');
+g.getDistance('It looks lved');
 
 /***/ }),
-/* 1 */
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -111,7 +115,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 /**
  * Created by HP on 28-Oct-17.
  */
-var Gun = function () {
+var Gun = exports.Gun = function () {
     function Gun() {
         _classCallCheck(this, Gun);
     }
@@ -126,8 +130,11 @@ var Gun = function () {
     return Gun;
 }();
 
-exports.default = Gun;
+/***/ }),
+/* 3 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=app.bundle.js.map
