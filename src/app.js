@@ -14,7 +14,7 @@ const gunElement = document.querySelector('#gun');
 /**
  * Instances of classes to work with
  * */
-const gun = new Gun(gunElement);
+let gun = new Gun(gunElement, sea);
 
 
 
@@ -22,5 +22,5 @@ const gun = new Gun(gunElement);
 /**
  * Event listeners
  * */
-document.body.addEventListener('mousemove', (e) => gun.rotateGun(e));
+document.body.addEventListener('mousemove', (e) => {gun.rotateGun(e); gun.calculateDistance(e)});
 
