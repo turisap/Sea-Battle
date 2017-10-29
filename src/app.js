@@ -9,12 +9,13 @@ import {Gun} from './gun';
  * */
 const sea = document.querySelector('#window');
 const gunElement = document.querySelector('#gun');
+const projectile = document.querySelector('#projectile');
 
 
 /**
  * Instances of classes to work with
  * */
-let gun = new Gun(gunElement, sea);
+let gun = new Gun(gunElement, sea, projectile);
 
 
 
@@ -22,5 +23,6 @@ let gun = new Gun(gunElement, sea);
 /**
  * Event listeners
  * */
-document.body.addEventListener('mousemove', (e) => {gun.rotateGun(e); gun.calculateDistance(e)});
+document.body.addEventListener('mousemove', (e) => gun.rotateGun(e));
+document.body.addEventListener('click', (e) => gun.fire(e));
 
