@@ -3,16 +3,24 @@
  */
 
 import {Gun} from './gun';
-/*const sea = document.querySelector('#window');
-const gun = document.querySelector('#gun');
 
-function rotateGun(e){
-    //debugger;
-    const angle = (e.pageX / window.innerWidth) * 180 - 180;
-    gun.style.webkitTransform = `rotate(${angle}deg)`
-}
+/**
+ * Necessary DOM elements
+ * */
+const sea = document.querySelector('#window');
+const gunElement = document.querySelector('#gun');
 
-document.body.addEventListener('mousemove', rotateGun);*/
 
-const g = new Gun();
-g.getDistance('I kdfj sdf ksdnfksdj');
+/**
+ * Instances of classes to work with
+ * */
+const gun = new Gun(gunElement);
+
+
+
+
+/**
+ * Event listeners
+ * */
+document.body.addEventListener('mousemove', (e) => gun.rotateGun(e));
+

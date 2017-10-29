@@ -7,6 +7,7 @@ every() checks whether all elements conform with a condition (return boolean)
 find() finds an  element can be object by it's property find(comment => comment.id === 823423)
 findIndex() finds an index of an element (can be an object by it's property) findIndex(comment => comment.id === 823423)
 Array.from() is same as [...notarray]
+doggies.map(getImage) using function call inside map
 
 CONSOLE
 console.table(comments)     PRINTS A TABLE IN CONSOLE!!!!
