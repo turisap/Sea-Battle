@@ -7,7 +7,11 @@ export class World {
     }
 
     run () {
+        this.bg.addEventListener('ended', () => {
+            this.bg.currentTime = 0;
+            this.bg.play();
+        }, false);
         this.bg.volume = 0.05;
-        //this.bg.play();
+        this.bg.play();
     }
 }

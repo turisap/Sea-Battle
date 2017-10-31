@@ -51,7 +51,7 @@ module.exports = {
         ]
     },
     plugins : [
-        //new webpack.optimize.UglifyJsPlugin(), // minifier,
+        new webpack.optimize.UglifyJsPlugin(), // minifier,
         new ExtractTextPlugin("[name].css"),
         new webpack.HotModuleReplacementPlugin(),
         new PurifyCSSPlugin({

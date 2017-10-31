@@ -23,6 +23,7 @@ export class Ship {
      */
     sink() {
         this.stricken = true;
+        this.s.currentTime = 0;
         this.s.volume = 0.02;
         this.s.play();
     }
@@ -35,10 +36,10 @@ export class Ship {
         const int = setInterval(() => animate(this), randomSpeed());
 
         this.horn.volume = 0.02;
-        //this.horn.play();
+        this.horn.play();
 
         function animate (obj) {
-            if(parseInt(obj.ship.style.marginLeft) > obj.sea.offsetWidth) {
+            if(parseInt(obj.ship.style.marginLeft) > obj.sea.offsetWidth + 150) {
                 clearInterval(int);
                 setTimeout(() =>{
                     i = 0;

@@ -26,6 +26,10 @@ export class Gun {
         this.gun.style.webkitTransform = `rotate(${angle}deg)`;
     }
 
+    /**
+     * Gets coordinates object of the projectile
+     * @returns {*}
+     */
     coordinates() {
         return this.gun.getBoundingClientRect();
     }
@@ -54,19 +58,21 @@ export class Gun {
                 function animate (self) {
                     if (stricken(self)) {
                         self.ship.sink();
-                        resolve();
-                        return;
+                        return fetch();
                     }
                     if (i > steps) {
+                        return fetch();
+                    }
+                    self.projectile.style.marginLeft = `${projLen * i}px`;
+                    i++;
+
+                    function fetch(){
                         self.projectile.style.marginLeft = '0px';
                         self.projectile.style.opacity = 0;
                         self.canShoot = true;
                         clearInterval(int);
                         resolve();
-                        return;
                     }
-                    self.projectile.style.marginLeft = `${projLen * i}px`;
-                    i++;
                 }
             }
         });
@@ -112,11 +118,15 @@ function calculateDistance(e, sea) {
     return distance;
 }
 
+
+/**
+ * Checks if the ship was stricken
+ * @param obj
+ * @returns {*}
+ */
 function stricken(obj){
     const sh = obj.ship.coordinates();
     const pr = obj.projectile.getBoundingClientRect();
-    /*console.log(`pr.left ${Math.round(pr.left)}, ship.l ${Math.round(sh.left)}, ship.r ${Math.round(sh.right)}, pr.top ${Math.round(pr.top)},
-     sh.bottom ${Math.round(sh.bottom)}, sh.top ${Math.round(sh.top)}, pr.top ${Math.round(pr.top)}`);*/
     return allignedByX(sh, pr) && allignedByY(sh, pr);
 
     function allignedByX (sh, pr) {
