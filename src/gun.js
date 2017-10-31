@@ -42,7 +42,7 @@ export class Gun {
 
                 this.canShoot = false;
                 this.projectile.style.opacity = 1;
-                let int = setInterval(() => animate(this), 100);
+                let int = setInterval(() => animate(this), 200);
 
                 function animate (self) {
                     if (i > steps) {

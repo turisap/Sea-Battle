@@ -3,6 +3,7 @@
  */
 
 import {Gun} from './gun';
+import {Ship} from './ship';
 
 /**
  * Necessary DOM elements
@@ -10,12 +11,15 @@ import {Gun} from './gun';
 const sea = document.querySelector('#window');
 const gunElement = document.querySelector('#gun');
 const projectile = document.querySelector('#projectile');
+const shipElement = document.querySelector('#ship');
 
 
 /**
  * Instances of classes to work with
  * */
-let gun = new Gun(gunElement, sea, projectile);
+const gun = new Gun(gunElement, sea, projectile);
+const ship = new Ship(shipElement, sea);
+ship.sail();
 
 
 

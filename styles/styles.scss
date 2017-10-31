@@ -13,13 +13,11 @@ body,html {
   width: 100%;
   height: 40%;
   transform: perspective(10em) rotateX(50deg);
-  -webkit-transform-style: preserve-3d;
   overflow:hidden;
 }
 #ship {
   width: 15%;
-  height: 20%;
-  transform: rotateX(30deg) translateZ(100px);
+  height: 10%;
   img {
     width : 100%;
     height: 100%
