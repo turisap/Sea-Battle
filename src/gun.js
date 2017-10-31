@@ -31,7 +31,7 @@ export class Gun {
     /**
      * Animates projectile div on click
      * @param {event} e
-     * @return {undefined}
+     * @return {Promise}
      * */
     fire(e) {
         return new Promise((resolve, reject) => {
