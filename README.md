@@ -1,0 +1,6 @@
+# Sea-Battle
+A small silly browser game which was popular on arcade machines 20 years ago in my hometown.
+It wasn't supposed to be deploed on a life server, it was my the very first javaScript app and the purpose was to get accustomed to using
+eventlisteners, ES6 classes and modules as well as understanding events and promises.
+
+Still, can be deployed and does not require a server. If you're a fun of old games, this might wind up an enjoable one.
