@@ -44,11 +44,12 @@ export class Gun {
 
                 this.canShoot = false;
                 this.projectile.style.opacity = 1;
-                let int = setInterval(() => animate(this), 50);
+                let int = setInterval(() => animate(this), 20);
 
                 function animate (self) {
                     if (stricken(self)) {
-                        //console.log('WWWWIIIIIIIIIIINNNNNNNNN');
+                        self.ship.sink();
+                        resolve();
                         return;
                     }
                     if (i > steps) {

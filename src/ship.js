@@ -5,10 +5,15 @@ export class Ship {
     constructor(ship, sea) {
         this.ship = ship;
         this.sea = sea;
+        this.stricken = false;
     }
 
     coordinates () {
         return this.ship.getBoundingClientRect();
+    }
+
+    sink() {
+        this.stricken = true;
     }
 
     sail() {
@@ -24,13 +29,23 @@ export class Ship {
                     return obj.sail();
                 }, getRandomPause());
             }
+            if(obj.stricken) {
+                sendToTheBottom(obj)
+                    .then(() => {
+                    clearInterval(int);
+                    obj.stricken = false;
+                    obj.ship.style.opacity = 1;
+                    obj.ship.style.marginLeft = `-${obj.ship.offsetWidth}px`;
+                    setTimeout(() =>{
+                        i = 0;
+                        return obj.sail();
+                    }, getRandomPause());
+                });
+
+            }
             obj.ship.style.marginLeft = `${i * obj.ship.offsetWidth / 50}px`;
             i++
         }
-    }
-
-    isStricken() {
-
     }
 }
 
@@ -50,4 +65,12 @@ function randomSpeed() {
  */
 function getRandomPause() {
     return Math.floor(Math.random() * (3 - 1) + 1) * 1000;
+}
+
+
+function sendToTheBottom(ship) {
+    return new Promise ((resolve, reject) => {
+        ship.ship.style.opacity = 0.5;
+        resolve();
+    });
 }

@@ -13,7 +13,6 @@ const gunElement = document.querySelector('#gun');
 const projectile = document.querySelector('#projectile');
 const shipElement = document.querySelector('#ship');
 
-
 /**
  * Instances of classes to work with
  * */
@@ -24,8 +23,6 @@ const gun = new Gun(gunElement, sea, projectile, ship);
  * Game initializer
  * */
 ship.sail();
-
-
 
 /**
  * Event listeners
