@@ -7,12 +7,13 @@ export class Gun {
      * @param {HTMLelement} sea
      * @param {HTMLelement} projectile
      * */
-    constructor(gun, sea, projectile, ship) {
+    constructor(gun, sea, projectile, ship, shot) {
         this.gun = gun;
         this.sea = sea;
         this.projectile = projectile;
         this.ship = ship;
         this.canShoot  = true;
+        this.shot = shot;
     }
 
     /**
@@ -30,17 +31,21 @@ export class Gun {
     }
 
     /**
-     * Animates projectile div on click
+     *
      * @param {event} e
-     * @param (HTMLelement) ship
-     * @return {Promise}
-     * */
+     * @param ship
+     * @returns {Promise}
+     */
     fire(e, ship) {
         return new Promise((resolve, reject) => {
             if (this.canShoot) {
                 let i = 0;
                 const projLen = this.projectile.offsetWidth;
                 const steps = parseInt(Math.abs(calculateDistance(e, this.sea) / projLen));
+
+                this.shot.currentTime = 0;
+                this.shot.volume = 0.05;
+                this.shot.play();
 
                 this.canShoot = false;
                 this.projectile.style.opacity = 1;
