@@ -9,43 +9,6 @@ const PurifyCSSPlugin = require('purifycss-webpack');
 const HotModuleReplacementPlugin = require('webpack-hot-middleware');
 
 
-/*module.exports = {
-    entry: './src/app.js',
-    output: {
-        path: path.resolve(__dirname, 'build'),
-        filename: 'app.bundle.js'
-    },
-    watch: true,
-    devServer: {
-        inline: true
-    },
-    module: {
-        loaders: [
-            {
-                test: /\.js$/,
-                loader: 'babel-loader',
-                exclude: /node_modules/,
-                query: {
-                    presets: ['es2015']
-                }
-            },
-            {
-                test: /\.scss$/,
-                //loaders: ['style-loader', 'css-loader', 'sass-loader']
-                loader: ExtractTextPlugin.extract('css-loader!sass-loader')
-            }
-        ]
-    },
-    plugins: [
-        new ExtractTextPlugin('./styles/styles.css', {
-            allChunks: true
-        })
-    ],
-    stats: {
-        colors: true
-    },
-    devtool: 'source-map'
-};*/
 module.exports = {
     entry : {
         app : [
@@ -74,8 +37,15 @@ module.exports = {
             {
                 test : /\.s[ac]ss$/,
                 use : ExtractTextPlugin.extract({
-                    use : ['css-loader', 'sass-loader'],
-                    fallback : 'style-loader'
+                    //use : ['css-loader', 'sass-loader'],
+                    fallback : 'style-loader',
+                    use :[
+                        {
+                            loader : 'css-loader',
+                            options : {url:false} // prevent urls from processing (necessary for backgrounds
+                        },
+                        'sass-loader'
+                    ]
                 })
             }
         ]
