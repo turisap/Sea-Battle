@@ -17,8 +17,12 @@ const shipElement = document.querySelector('#ship');
 /**
  * Instances of classes to work with
  * */
-const gun = new Gun(gunElement, sea, projectile);
 const ship = new Ship(shipElement, sea);
+const gun = new Gun(gunElement, sea, projectile, ship);
+
+/**
+ * Game initializer
+ * */
 ship.sail();
 
 
@@ -28,8 +32,8 @@ ship.sail();
  * */
 document.body.addEventListener('mousemove', rotate);
 document.body.addEventListener('click', (e) => {
-    document.body.removeEventListener('mousemove', rotate); // ?????????????????
-    gun.fire(e)
+    document.body.removeEventListener('mousemove', rotate);
+    gun.fire(e, ship)
         .then(() => document.body.addEventListener('mousemove', rotate))
         .catch(err => console.warn(err));
 });

@@ -7,15 +7,12 @@ export class Gun {
      * @param {HTMLelement} sea
      * @param {HTMLelement} projectile
      * */
-    constructor(gun, sea, projectile) {
+    constructor(gun, sea, projectile, ship) {
         this.gun = gun;
         this.sea = sea;
         this.projectile = projectile;
+        this.ship = ship;
         this.canShoot  = true;
-    }
-
-    get distance() {
-        //return this.calculateDistance()
     }
 
     /**
@@ -28,12 +25,17 @@ export class Gun {
         this.gun.style.webkitTransform = `rotate(${angle}deg)`;
     }
 
+    coordinates() {
+        return this.gun.getBoundingClientRect();
+    }
+
     /**
      * Animates projectile div on click
      * @param {event} e
+     * @param (HTMLelement) ship
      * @return {Promise}
      * */
-    fire(e) {
+    fire(e, ship) {
         return new Promise((resolve, reject) => {
             if (this.canShoot) {
                 let i = 0;
@@ -42,9 +44,13 @@ export class Gun {
 
                 this.canShoot = false;
                 this.projectile.style.opacity = 1;
-                let int = setInterval(() => animate(this), 200);
+                let int = setInterval(() => animate(this), 50);
 
                 function animate (self) {
+                    if (stricken(self)) {
+                        //console.log('WWWWIIIIIIIIIIINNNNNNNNN');
+                        return;
+                    }
                     if (i > steps) {
                         self.projectile.style.marginLeft = '0px';
                         self.projectile.style.opacity = 0;
@@ -89,7 +95,6 @@ function calculateDistance(e, sea) {
     let distance;
     let k1, k2;
     const angle = getAngle(e);
-    //debugger
     if (angleIsSharp(angle)) {
         k1 = sea.offsetWidth / 2;
         k2 = k1 * Math.tan(Math.abs((angle + 180)/ 57));
@@ -100,3 +105,19 @@ function calculateDistance(e, sea) {
     distance = Math.sqrt(Math.pow(k1, 2) + Math.pow(k2, 2));
     return distance;
 }
+
+function stricken(obj){
+    const sh = obj.ship.coordinates();
+    const pr = obj.projectile.getBoundingClientRect();
+    /*console.log(`pr.left ${Math.round(pr.left)}, ship.l ${Math.round(sh.left)}, ship.r ${Math.round(sh.right)}, pr.top ${Math.round(pr.top)},
+     sh.bottom ${Math.round(sh.bottom)}, sh.top ${Math.round(sh.top)}, pr.top ${Math.round(pr.top)}`);*/
+    return allignedByX(sh, pr) && allignedByY(sh, pr);
+
+    function allignedByX (sh, pr) {
+        return pr.left > sh.left && pr.left < sh.right;
+    }
+    function allignedByY(sh, pr) {
+        return pr.top < sh.bottom && pr.top > sh.top;
+    }
+}
+

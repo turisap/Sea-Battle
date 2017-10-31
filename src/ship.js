@@ -4,7 +4,11 @@
 export class Ship {
     constructor(ship, sea) {
         this.ship = ship;
-        this.sea = sea
+        this.sea = sea;
+    }
+
+    coordinates () {
+        return this.ship.getBoundingClientRect();
     }
 
     sail() {
@@ -13,7 +17,6 @@ export class Ship {
 
         function animate (obj) {
             if(parseInt(obj.ship.style.marginLeft) > obj.sea.offsetWidth) {
-                //console.log(`dlkfj ${obj.ship.offsetWidth}`)
                 clearInterval(int);
                 setTimeout(() =>{
                     i = 0;
@@ -25,17 +28,26 @@ export class Ship {
             i++
         }
     }
+
+    isStricken() {
+
+    }
 }
 
 
 /**
  * Provides class with a random speed of th ship
- * @return {Number}
+ * @return {number}
  * */
 function randomSpeed() {
     return Math.floor(Math.random() * 30 + 15);
 }
 
+
+/**
+ * Provides class with random pause between ship appearance
+ * @returns {number}
+ */
 function getRandomPause() {
     return Math.floor(Math.random() * (3 - 1) + 1) * 1000;
 }

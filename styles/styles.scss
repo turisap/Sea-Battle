@@ -8,11 +8,11 @@ body,html {
 }
 
 #window {
-  margin: 30vh auto;
+  //margin: 30vh auto;
   position: relative;
-  width: 100%;
-  height: 40%;
-  transform: perspective(10em) rotateX(50deg);
+  width: 100vw;
+  height: 100vh;
+  //transform: perspective(10em) rotateX(50deg);
   overflow:hidden;
 }
 #ship {
@@ -38,6 +38,7 @@ body,html {
   background-color: #ffed28;
   opacity: 0;
 }
+
 /* ======== UTILITY CLASSES ==============*/
 .black-bordered {
   border: 1px solid black;
