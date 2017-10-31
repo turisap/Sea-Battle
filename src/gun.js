@@ -34,27 +34,30 @@ export class Gun {
      * @return {undefined}
      * */
     fire(e) {
-        if (this.canShoot) {
-            let i = 0;
-            const projLen = this.projectile.offsetWidth;
-            const steps = parseInt(Math.abs(calculateDistance(e, this.sea) / projLen));
+        return new Promise((resolve, reject) => {
+            if (this.canShoot) {
+                let i = 0;
+                const projLen = this.projectile.offsetWidth;
+                const steps = parseInt(Math.abs(calculateDistance(e, this.sea) / projLen));
 
-            this.canShoot = false;
-            this.projectile.style.opacity = 1;
-            let int = setInterval(() => animate(this), 100);
+                this.canShoot = false;
+                this.projectile.style.opacity = 1;
+                let int = setInterval(() => animate(this), 100);
 
-            function animate (self) {
-                if (i > steps) {
-                    self.projectile.style.marginLeft = '0px';
-                    self.projectile.style.opacity = 0;
-                    self.canShoot = true;
-                    clearInterval(int);
-                    return;
+                function animate (self) {
+                    if (i > steps) {
+                        self.projectile.style.marginLeft = '0px';
+                        self.projectile.style.opacity = 0;
+                        self.canShoot = true;
+                        clearInterval(int);
+                        resolve();
+                        return;
+                    }
+                    self.projectile.style.marginLeft = `${projLen * i}px`;
+                    i++;
                 }
-                self.projectile.style.marginLeft = `${projLen * i}px`;
-                i++;
             }
-        }
+        });
     }
 }
 

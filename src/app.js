@@ -19,10 +19,18 @@ let gun = new Gun(gunElement, sea, projectile);
 
 
 
-
 /**
  * Event listeners
  * */
-document.body.addEventListener('mousemove', (e) => gun.rotateGun(e));
-document.body.addEventListener('click', (e) => gun.fire(e));
+document.body.addEventListener('mousemove', rotate);
+document.body.addEventListener('click', (e) => {
+    document.body.removeEventListener('mousemove', rotate); // ?????????????????
+    gun.fire(e)
+        .then(() => document.body.addEventListener('mousemove', rotate))
+        .catch(err => console.warn(err));
+});
+
+function rotate(e) {
+    gun.rotateGun(e)
+}
 
